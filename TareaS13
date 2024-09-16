@@ -1,0 +1,44 @@
+# Función para calcular la temperatura promedio de tres ciudades durante 4 semanas
+def calcular_temperaturas_promedio(ciudad1, ciudad2, ciudad3):
+    # Verificar que todas las ciudades tengan datos de 4 semanas
+    if len(ciudad1) != 4 or len(ciudad2) != 4 or len(ciudad3) != 4:
+        return "Los datos de temperaturas no están completos para 4 semanas."
+
+    # Calcular el promedio de cada ciudad sumando las temperaturas de cada semana y dividiendo por el total
+    promedio_ciudad1 = sum([sum(semana) / len(semana) for semana in ciudad1]) / len(ciudad1)
+    promedio_ciudad2 = sum([sum(semana) / len(semana) for semana in ciudad2]) / len(ciudad2)
+    promedio_ciudad3 = sum([sum(semana) / len(semana) for semana in ciudad3]) / len(ciudad3)
+
+    # Retornar los promedios de cada ciudad
+    return promedio_ciudad1, promedio_ciudad2, promedio_ciudad3
+
+# Datos de ejemplo: temperaturas diarias de 3 ciudades durante 4 semanas (en °C)
+# Cada lista dentro de la ciudad corresponde a una semana (7 días)
+temperaturas_ciudad1 = [
+    [22.5, 23.1, 21.9, 24.3, 25.2, 23.8, 22.0],  # Semana 1
+    [21.5, 22.0, 23.2, 24.1, 25.0, 23.6, 22.8],  # Semana 2
+    [23.0, 23.5, 24.0, 25.5, 26.0, 24.5, 23.7],  # Semana 3
+    [22.0, 23.0, 22.8, 24.0, 25.2, 23.6, 22.5]   # Semana 4
+]
+
+temperaturas_ciudad2 = [
+    [19.5, 20.3, 19.8, 21.0, 22.1, 20.8, 21.4],  # Semana 1
+    [18.5, 19.2, 19.9, 20.3, 21.2, 20.0, 19.7],  # Semana 2
+    [20.0, 20.5, 21.0, 22.0, 22.5, 21.3, 20.8],  # Semana 3
+    [19.2, 19.8, 20.0, 21.1, 21.9, 20.5, 20.2]   # Semana 4
+]
+
+temperaturas_ciudad3 = [
+    [25.0, 24.5, 26.1, 25.8, 27.2, 26.9, 27.0],  # Semana 1
+    [24.0, 25.1, 26.0, 27.2, 26.5, 27.0, 27.3],  # Semana 2
+    [26.0, 25.8, 27.0, 27.5, 28.0, 27.2, 27.4],  # Semana 3
+    [24.5, 25.0, 26.2, 27.0, 26.8, 27.1, 26.9]   # Semana 4
+]
+
+# Llamada a la función y resultado
+promedios = calcular_temperaturas_promedio(temperaturas_ciudad1, temperaturas_ciudad2, temperaturas_ciudad3)
+
+# Mostrar los resultados
+print(f"Temperatura promedio de la Ciudad 1: {promedios[0]:.2f}°C")
+print(f"Temperatura promedio de la Ciudad 2: {promedios[1]:.2f}°C")
+print(f"Temperatura promedio de la Ciudad 3: {promedios[2]:.2f}°C")
